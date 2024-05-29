@@ -1,0 +1,34 @@
+Lab 7 - TCP
+dorinel.filip@upb.ro
+
+TCP este orientat pe conexiune;
+Transmisie garantată (eng. reliable), cat timp exista conexiune
+TCP-ul trateaza intreaga comunicatie ca un flux de bytes
+Un send dintr-o parte nu este neaparat in paritate cu un recv
+
+Send - punem intr-un buffer date pentru a fi trimise
+Recv - citim din bufferul de receptie
+
+send(100 octeti)
+recv() -- 5 octeti
+Programatorul trebuie sa separe mesajele.
+
+
+---- SYN --->
+<---- SYN, ACK ---
+-----------ACK--------->
+
+Server-ul:
+creaza un socket pe care sa astepte conexiuni
+listen() -- il seteaza ca passive
+accept() -- blocant, pana cand se conecteaza un nou client si de la accept primim un nou socket (fd)
+
+Pentru fiecare client avem un socket separat
+recv / send
+recv intoarce 0, daca s-a inchis conexiunea
+
+
+Clientul
+Un socket
+Connect()
+send/recv
