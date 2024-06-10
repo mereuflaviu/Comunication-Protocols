@@ -3,3 +3,5 @@ Mereu Ioan Flaviu
 Am creat configurarea routerului utilizând o tabelă ARP statică. Pentru fiecare pachet primit, efectuez o serie de verificări pentru a gestiona cazurile de eroare: dacă checksum-ul este incorect, pachetul este abandonat; dacă este un pachet de tip echo către router, dacă are un TTL mai mic sau egal cu 1 sau dacă are o destinație nulă, trimite un pachet ICMP către router. Pentru acest pachet ICMP, modific sursele și destinațiile ETH, construiesc headerul ICMP cu codul și tipul corespunzător, și trimit un pachet format din ETH nou + IPv4 nou + ICMP nou + IPv4 vechi + ICMP vechi.
 
 În plus, am implementat algoritmul LPM folosind o sortare a rutelor în ordine descrescătoare după masca de rețea, iar în caz de egalitate a mascilor, sortez crescător după IP. Pentru a găsi cea mai bună rută, am creat funcția get_best_route folosind căutarea binară, inspirându-mă din abordarea din laboratorul de Proiectarea Algoritmilor.
+
+Link: https://pcom.pages.upb.ro/tema1/about.html
